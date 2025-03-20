@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav E H Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .project-card {
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .project-title {
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        .project-description {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .project-link {
+            color: #00FF7F;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .project-link:hover {
+            color: #00c066;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-transition">
+
+        <header>
+            <nav>
+                <div class="logo">Abhinav E H</div>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Skills</a></li>   
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+           <section id="hero" class="hero current" style="background-image: url('images/background.jpg');">
+            <div class="hero-content-container">
+                <div class="hero-image-container">
+                    <img class="hero-image" src="home.png" alt="Your Profile Image">
+                </div>
+                <div class="hero-content">
+                     <h1>Hello, I'm Abhinav E H</h1>
+                    <p>
+                        <span id="job-title-container">
+                            <span id="job-title">Data Analyst & Web Developer</span>
+                        </span>
+                        <br>
+                        Web Engineering Meets Data Science | Building Scalable & Interactive Applications.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1qqQXoTMzTyCDZtbszLIFCl0H0UIlqn9j/view?usp=drive_link"
+                        target="_blank" class="hero-button">View My Resume</a>
+                </div>
+              </div>
+            </section>
+
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="about-image">
+                        <img src="abhinav.png.jpg" alt="Abhinav E H Profile">
+                    </div>
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>
+                            "My name is Abhinav E H, I am a passionate developer with experience in Data Analysis, Web Development, and Programming. I enjoy solving complex problems using data and building engaging web experiences through innovative technologies. 💻📊
+                            <br><br>As a data and web professional, I have a strong passion for developing responsive web applications, extracting insights from data, and leveraging programming to create intuitive and impactful digital solutions. 🚀"
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="services">
+                <div class="container">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-card">
+                            <i class="fab fa-java skill-icon"></i>
+                            <div class="skill-name">Java</div>
+                            <p>Proficient in Java programming for building robust applications.</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-code skill-icon"></i>
+                            <div class="skill-name">C</div>
+                            <p>Strong understanding of C programming for system-level applications.</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-database skill-icon"></i>
+                            <div class="skill-name">SQL</div>
+                            <p>Experienced in SQL for database management and data manipulation.</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fab fa-html5 skill-icon"></i>
+                            <div class="skill-name">HTML</div>
+                            <p>Skilled in HTML for creating structured web content.</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fab fa-css3-alt skill-icon"></i>
+                            <div class="skill-name">CSS</div>
+                            <p>Proficient in CSS for styling and layout of web pages.</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fab fa-js skill-icon"></i>
+                            <div class="skill-name">JavaScript</div>
+                            <p>Experienced in JavaScript for dynamic web applications.</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fab fa-python skill-icon"></i>
+                            <div class="skill-name">NumPy & Pandas</div>
+                            <p>Proficient in data analysis using NumPy and Pandas libraries.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="projects">
+                <div class="container">
+                    <h2>Projects</h2>
+                    <div class="projects-container">
+                        <div class="project-card">
+                            <img src="freelance-marketplace.png" alt="Freelance Marketplace" class="project-image">
+                            <div class="project-title">Freelance Marketplace Web Application</div>
+                            <p class="project-description">Developed a freelancer marketplace platform using HTML, CSS, JavaScript, and Python (Flask). Implemented authentication, project listings, and SQL-based data management.</p>
+                            <a href="https://github.com/your-repo-link" class="project-link" target="_blank">View Project</a>
+                        </div>
+                        <div class="project-card">
+                            <img src="sgpa-cgpa-calculator.png" alt="SGPA & CGPA Calculator" class="project-image">
+                            <div class="project-title">SGPA & CGPA Calculator</div>
+                            <p class="project-description">Designed a Python-based calculator to compute academic performance with database integration and an interactive UI.</p>
+                            <a href="https://github.com/your-repo-link" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="education">
+                <div class="container">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>Bachelor of Computer Application (Artificial Intelligence) - NITTE University (2023 - Present)</li>
+                        <li>Higher Secondary Certificate - Karnataka State Board (2021 - 2022) - Science - 62.46%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <div class="container">
+                    <h2>Contact</h2>
+                    <p>Feel free to reach out!</p>
+                    <div class="contact-info">
+                        <p>Email: <a href="mailto:abhinavgowda1305@gmail.com"><i class="fas fa-envelope"></i>
+                                abhinavgowda1305@gmail.com</a></p>
+                        <p>GitHub: <a href="https://github.com/Abhinav-gowda" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a></p>
+                        <p>Facebook: <a href="https://www.facebook.com/AbhinavEh" target="_blank"><i class="fab fa-facebook"></i> Facebook Profile</a></p>
+                        <p>Instagram: <a href="https://www.instagram.com/abhinav_gowda__" target="_blank"><i class="fab fa-instagram"></i> Instagram Profile</a></p>
+                        <p>LinkedIn: <a href="https://www.linkedin.com/in/abhinavehgowda" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const jobTitleElement = document.getElementById('job-title');
+        const jobTitles = ['Data Analyst', 'Web Developer'];
+        let index = 0;
+        const colors = ['#00FF7F', '#FFFF00'];
+
+        function changeJobTitle() {
+            jobTitleElement.classList.add('animate-job-title');
+            setTimeout(() => {
+                jobTitleElement.textContent = jobTitles[index];
+                jobTitleElement.style.color = colors[index];
+                jobTitleElement.classList.remove('animate-job-title');
+                index = (index + 1) % jobTitles.length;
+            }, 300);
+        }
+
+        setInterval(changeJobTitle, 2000); // Change every 2 seconds (adjust as needed)
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const heroSection = document.getElementById('hero');
+                const currentElement = document.querySelector('main section.current');
+
+                document.querySelector('.page-transition').classList.add('page-transition-active');
+                // Remove current class from currently shown section
+                if (currentElement) {
+                    currentElement.classList.remove('current');
+                }
+
+                setTimeout(() => {
+                    document.querySelector('.page-transition').classList.remove('page-transition-active');
+                    targetElement.classList.add('current');
+                    if (targetId !== '#hero') {
+                        heroSection.style.display = 'none'; // Hide hero section on navigation
+                    } else {
+                        heroSection.style.display = 'flex';
+                    }
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>
