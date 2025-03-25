@@ -1,663 +1,538 @@
-/* General Styles - Keep these unchanged for now*/
+/* General Styles */
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #1a1a2e;
-  color: #f0f0f0;
-  line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
+  font-family: 'Roboto', sans-serif; /* Font family */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-color: #1a1a2e; /* Background color */
+  color: #f0f0f0; /* Text color */
+  line-height: 1.6; /* Line height for readability */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  position: relative; /* Positioning context */
 }
 
 .page-transition {
-    position: relative;
-    overflow: hidden;
+  position: relative; /* Positioning context for transitions */
+  overflow: hidden; /* Hide overflow during transitions */
 }
+
 .page-transition::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a2e;
-    z-index: 1001;
-    transform: translateX(100%);
-    transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1); /* Modified timing function for smoother transition */
+  content: ''; /* Empty content for pseudo-element */
+  position: fixed; /* Fixed position for transition effect */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #1a1a2e; /* Background color for transition */
+  z-index: 1001; /* Layer above other content */
+  transform: translateX(100%); /* Start off-screen */
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1); /* Transition effect */
 }
+
 .page-transition.page-transition-active::before {
-    transform: translateX(0);
+  transform: translateX(0); /* Move into view when active */
 }
 
 main {
-  overflow-y: hidden;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  overflow-y: hidden; /* Prevent vertical overflow */
+  min-height: 100vh; /* Minimum height for full viewport */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column direction */
 }
 
 main section {
-  display: none;
-  padding: 80px 20px;
-  /* Add padding to top and bottom */
-  align-items: center;
-  flex-direction: column;
-  overflow-y: auto;
-  opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added transitions */
-    transform: translateY(20px); /* Initial Y-offset */
+  display: none; /* Hide sections by default */
+  padding: 80px 20px; /* Padding for sections */
+  align-items: center; /* Center items */
+  flex-direction: column; /* Column direction */
+  overflow-y: auto; /* Allow vertical scrolling */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition effects */
+  transform: translateY(20px); /* Start slightly below */
 }
 
 main section.current {
-  display: flex;
-    opacity: 1; /* Show with fade-in */
-    transform: translateY(0); /* Move to original position */
-  overflow-y: auto;
+  display: flex; /* Show current section */
+  opacity: 1; /* Make visible */
+  transform: translateY(0); /* Move to original position */
+  overflow-y: auto; /* Allow vertical scrolling */
 }
-
 
 /* Header & Navigation */
 header {
-  background-color: #1a1a1a;
-  padding: 10px 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added a subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1a1a1a; /* Header background color */
+  padding: 10px 0; /* Padding for header */
+  position: fixed; /* Fixed position at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Align to top */
+  z-index: 1000; /* Layer above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
 }
-    header:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+
+header:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  display: flex; /* Flexbox layout for navigation */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  max-width: 1200px; /* Maximum width for navigation */
+  margin: 0 auto; /* Center navigation */
+  padding: 0 20px; /* Padding for navigation */
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.5rem; /* Logo font size */
+  font-weight: bold; /* Bold font weight */
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+  list-style: none; /* Remove list style */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  display: flex; /* Flexbox layout for list */
 }
 
 nav ul li {
-  margin-left: 20px;
+  margin-left: 20px; /* Space between list items */
 }
 
 nav ul li a {
-  color: #f0f0f0;
-  text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
-    display: inline-block;
-  position: relative;
-    overflow: hidden;
-}
-nav ul li a::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #00FF7F;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-}
-nav ul li a:hover::before {
-    transform: translateX(0);
+  color: #f0f0f0; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s, transform 0.3s; /* Transition effects */
+  display: inline-block; /* Inline block for positioning */
+  position: relative; /* Positioning context for pseudo-element */
+  overflow: hidden; /* Hide overflow */
 }
 
+nav ul li a::before {
+  content: ''; /* Empty content for pseudo-element */
+  position: absolute; /* Absolute positioning */
+  left: 0; /* Align to left */
+  bottom: 0; /* Align to bottom */
+  width: 100%; /* Full width */
+  height: 2px; /* Height of the underline */
+  background-color: #00FF7F; /* Underline color */
+  transform: translateX(-100%); /* Start off-screen */
+  transition: transform 0.3s ease-in-out; /* Transition effect */
+}
+
+nav ul li a:hover::before {
+  transform: translateX(0); /* Move underline into view on hover */
+}
 
 nav ul li a:hover {
-  color: #00FF7F;
-    transform: translateY(-2px);
+  color: #00FF7F; /* Change link color on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
 }
 
 /* Hero Section */
 .hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
+  background-size: cover; /* Cover background */
+  background-position: center; /* Center background */
+  background-repeat: no-repeat; /* No repeat */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  text-align: center; /* Center text */
+  position: relative; /* Positioning context */
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #4568DC, #B06AB3);
-  opacity: 0.1;
-  z-index: -1;
-    animation: gradientBackground 15s ease-in-out infinite alternate;
+  content: ""; /* Empty content for pseudo-element */
+  position: absolute; /* Absolute positioning */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: linear-gradient(45deg, #4568DC, #B06AB3); /* Gradient background */
+  opacity: 0.1; /* Semi-transparent */
+  z-index: -1; /* Layer behind content */
+  animation: gradientBackground 15s ease-in-out infinite alternate; /* Animation for gradient */
 }
 
 @keyframes gradientBackground {
   0% {
-    background-position: 0% 50%;
+      background-position: 0% 50%; /* Start position */
   }
   50% {
-    background-position: 100% 50%;
+      background-position: 100% 50%; /* Mid position */
   }
   100% {
-    background-position: 0% 50%;
+      background-position: 0% 50%; /* End position */
   }
 }
+
 .hero-content-container {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center content horizontally in the hero section */
-    max-width: 1200px; /* Limit the maximum width of the content container */
-     margin: 0 auto;
-    padding: 20px;
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center container */
+  padding: 20px; /* Padding for container */
 }
 
 .hero-image-container {
-     flex: 0 0 auto; /* Do not grow or shrink the image */
-    margin-right: 20px;
-    transform: translateX(-20px);
-    opacity: 0;
-        transition: transform 0.5s ease-out 0.2s, opacity 0.5s ease-out 0.2s;
+  flex: 0 0 auto; /* Fixed size for image container */
+  margin-right: 20px; /* Space between image and text */
+  transform: translateX(-20px); /* Start slightly off-screen */
+  opacity: 0; /* Start invisible */
+  transition: transform 0.5s ease-out 0.2s, opacity 0.5s ease-out 0.2s; /* Transition effects */
 }
-.hero.current .hero-image-container{
-    transform: translateX(0);
-    opacity: 1;
+
+.hero.current .hero-image-container {
+  transform: translateX(0); /* Move into view */
+  opacity: 1; /* Make visible */
 }
 
 .hero-image {
-    max-width: 180px; /* Reduced max width of image*/
-    height: auto;
-    border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 180px; /* Maximum width for image */
+  height: auto; /* Auto height */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
 }
+
 .hero-image:hover {
- transform: scale(1.1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1); /* Scale up on hover */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
 .hero-content {
-    flex: 1; /* Allow content to take available space*/
-    text-align: left;/* Align text to the left */
-    padding-right: 10px;
-  max-width: 600px;
-    transform: translateY(20px); /* Initial Y-offset */
-    opacity: 0; /* Initial opacity */
-    animation: fadeInSlideUp 0.8s ease-out 0.3s forwards;
+  flex: 1; /* Flexible size for content */
+  text-align: left; /* Align text to left */
+  padding-right: 10px; /* Padding on right */
+  max-width: 600px; /* Maximum width for content */
+  transform: translateY(20px); /* Start slightly below */
+  opacity: 0; /* Start invisible */
+  animation: fadeInSlideUp 0.8s ease-out 0.3s forwards; /* Animation for content */
 }
+
 @keyframes fadeInSlideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+      opacity: 0; /* Start invisible */
+      transform: translateY(20px); /* Start below */
+  }
+  100% {
+      opacity: 1; /* Make visible */
+      transform: translateY(0); /* Move to original position */
+  }
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 3rem; /* Main heading font size */
+  margin-bottom: 20px; /* Space below heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect for text */
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-    line-height: 1.8;
+  font-size: 1.2rem; /* Paragraph font size */
+  margin-bottom: 30px; /* Space below paragraph */
+  line-height: 1.8; /* Line height for readability */
 }
 
 #job-title-container {
-  display: block;
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  display: block; /* Block display */
+  font-size: 1.5em; /* Font size for job title */
+  margin-bottom: 10px; /* Space below job title */
+  overflow: hidden; /* Hide overflow */
+  white-space: nowrap; /* Prevent line breaks */
+  border-right: 0.1em solid #00FF7F; /* Right border for typing effect */
 }
 
-#job-title-container {
-  display: block;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-    overflow: hidden; /* keeps the animation inside of the container*/
-    white-space: nowrap; /* keeps the text in a single line*/
-    border-right: 0.1em solid #00FF7F; /* creates the caret*/
+#job-title.animate-job-title {
+  animation: blurInOut 0.5s ease-in-out; /* Animation for job title */
 }
-#job-title.animate-job-title{
-  animation: blurInOut 0.5s ease-in-out;
-}
+
 @keyframes blurInOut {
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
+  0% {
+      opacity: 0; /* Start invisible */
+      filter: blur(10px); /* Start blurred */
+  }
+  100% {
+      opacity: 1; /* Make visible */
+      filter: blur(0); /* Clear blur */
+  }
 }
+
 .hero-button {
-  background-color: #00FF7F;
-  color: #111;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  display: inline-block;
+  background-color: #00FF7F; /* Button background color */
+  color: #111; /* Button text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for button */
+  font-size: 1rem; /* Font size for button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transition effects */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Inline block for positioning */
 }
 
 .hero-button:hover {
-  background-color: #00c066;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: #00c066; /* Change background color on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
-  .hero-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+.hero-button:active {
+  transform: scale(0.95); /* Scale down on click */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Reduced shadow on click */
 }
 
 /* About Section */
 .about {
-  padding: 80px 20px;
-  position: relative;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  padding: 80px 20px; /* Padding for about section */
+  position: relative; /* Positioning context */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transition effects */
 }
+
 .about:hover {
-    transform: scale(1.03);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03); /* Slight scale on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .about .container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-  padding: 20px;
+  display: flex; /* Flexbox layout */
+  flex-wrap: wrap; /* Wrap items */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center container */
+  align-items: center; /* Center items vertically */
+  padding: 20px; /* Padding for container */
 }
 
 .about-image {
-  flex: 1;
-  min-width: 300px;
-  padding-right: 20px;
-    transform: translateX(-20px);
-    opacity: 0;
-        transition: transform 0.5s ease-out 0.2s, opacity 0.5s ease-out 0.2s;
+  flex: 1; /* Flexible size for image */
+  min-width: 300px; /* Minimum width for image */
+  padding-right: 20px; /* Padding on right */
+  transform: translateX(-20px); /* Start slightly off-screen */
+  opacity: 0; /* Start invisible */
+  transition: transform 0.5s ease-out 0.2s, opacity 0.5s ease-out 0.2s; /* Transition effects */
 }
+
 .about.current .about-image {
-     transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0); /* Move into view */
+  opacity: 1; /* Make visible */
 }
 
 .about-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 100%; /* Maximum width for image */
+  height: auto; /* Auto height */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
 }
 
 .about-image img:hover {
-  transform: scale(1.1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1); /* Scale up on hover */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
 .about-text {
-  flex: 2;
-  padding-left: 20px;
-      transform: translateX(20px);
-        opacity: 0;
-        transition: transform 0.5s ease-out 0.4s, opacity 0.5s ease-out 0.4s;
+  flex: 2; /* Flexible size for text */
+  padding-left: 20px; /* Padding on left */
+  transform: translateX(20px); /* Start slightly off-screen */
+  opacity: 0; /* Start invisible */
+  transition: transform 0.5s ease-out 0.4s, opacity 0.5s ease-out 0.4s; /* Transition effects */
 }
-.about.current .about-text{
-    transform: translateX(0);
-    opacity: 1;
+
+.about.current .about-text {
+  transform: translateX(0); /* Move into view */
+  opacity: 1; /* Make visible */
 }
 
 .about-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem; /* Heading font size */
+  margin-bottom: 20px; /* Space below heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect for text */
 }
 
 .about-text p {
-  font-size: 1.1rem;
-    line-height: 1.7;
+  font-size: 1.1rem; /* Paragraph font size */
+  line-height: 1.7; /* Line height for readability */
 }
 
 /* Services Section */
 .services {
-  padding: 80px 20px;
-  background-color: #1a1a1a;
-  position: relative;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  padding: 80px 20px; /* Padding for services section */
+  background-color: #1a1a1a; /* Background color */
+  position: relative; /* Positioning context */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transition effects */
 }
+
 .services:hover {
-    transform: scale(1.03);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03); /* Slight scale on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .services .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center container */
+  padding: 20px; /* Padding for container */
 }
 
 .services h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem; /* Heading font size */
+  margin-bottom: 30px; /* Space below heading */
+  text-align: center; /* Center text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect for text */
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-.service-item {
-  background-color: #222;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  /* space between icon and text*/
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-  text-align: left;
-    transform: translateY(20px);
-    opacity: 0;
+.skills-container {
+  display: grid; /* Grid layout for skills */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between grid items */
 }
 
-.services.current .service-item {
-    animation: fadeInSlideUpItem 0.5s ease-out forwards;
-}
-@keyframes fadeInSlideUpItem {
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.service-item:hover {
-  transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+.skill-card {
+  background-color: #2a2a2e; /* Background color for skill card */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding for card */
+  text-align: center; /* Center text */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
+  position: relative; /* Positioning context */
+  overflow: hidden; /* Hide overflow */
 }
 
-.service-item:active {
-  transform: translateY(-2px) scale(1);
+.skill-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
 }
 
-.service-item .icons {
-  font-size: 2.5rem;
-  margin-bottom: 0;
-  /* remove the margin-bottom of the old icon*/
-  flex-shrink: 0;
-  /* to make sure icon does not shrink if content is large */
+.skill-icon {
+  width: 60px; /* Width for skill icon */
+  height: 60px; /* Height for skill icon */
+  margin-bottom: 10px; /* Space below icon */
 }
 
-.service-item-content {
-  flex: 1;
+.skill-name {
+  font-size: 1.2rem; /* Font size for skill name */
+  font-weight: bold; /* Bold font weight */
+  margin: 10px 0; /* Space above and below */
 }
 
-.service-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.progress-bar {
+  background-color: #e0e0e0; /* Background color for progress bar */
+  border-radius: 5px; /* Rounded corners */
+  height: 10px; /* Height of progress bar */
+  margin-top: 10px; /* Space above progress bar */
+  overflow: hidden; /* Hide overflow */
 }
 
-.service-item p {
-  margin-bottom: 20px;
-  font-size: 1rem;
-}
-
-.arrow-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.arrow-button i {
-  font-size: 1.2rem;
-}
-
-.service-item:hover .arrow-button {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.icons {
-  font-size: 2.5rem;
-  /* Removed here, moved to specific place*/
+.progress {
+  background-color: #00FF7F; /* Progress color */
+  height: 100%; /* Full height */
+  transition: width 0.4s ease; /* Transition for width */
 }
 
 /* Projects Section */
 .projects {
-  padding: 80px 20px;
-  position: relative;
-        transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  padding: 80px 20px; /* Padding for projects section */
+  position: relative; /* Positioning context */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transition effects */
 }
+
 .projects:hover {
-    transform: scale(1.03);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03); /* Slight scale on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .projects .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center container */
+  padding: 20px; /* Padding for container */
 }
 
 .projects h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem; /* Heading font size */
+  margin-bottom: 30px; /* Space below heading */
+  text-align: center; /* Center text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect for text */
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.projects-container {
+  display: flex; /* Flexbox layout for projects */
+  flex-wrap: wrap; /* Wrap items */
+  justify-content: space-around; /* Space around items */
+  margin: 20px 0; /* Margin above and below */
 }
 
-.project-item {
-  background-color: #222;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-    transform: translateY(20px);
-    opacity: 0;
-}
-.projects.current .project-item {
-      animation: fadeInSlideUpItem 0.5s ease-out forwards;
+.project-card {
+  background-color: #333; /* Background color for project card */
+  color: #fff; /* Text color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding for card */
+  margin: 10px; /* Margin around card */
+  width: 300px; /* Fixed width for card */
+  text-align: center; /* Center text */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
 
-.project-item:hover {
-  transform: translateY(-5px) scale(1.03);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+.project-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
 }
 
-.project-item:active {
-  transform: translateY(-2px) scale(1);
+.project-title {
+  font-weight: bold; /* Bold font weight for title */
+  margin: 10px 0; /* Space above and below */
+  font-size: 1.2rem; /* Font size for title */
 }
 
-.project-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+.project-description {
+  font-size: 0.9rem; /* Font size for description */
+  margin-bottom: 10px; /* Space below description */
 }
 
-.project-item img:hover {
-  transform: scale(1.1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+.project-link {
+  color: #00FF7F; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold font weight */
+  transition: color 0.3s; /* Transition for color */
 }
 
-.project-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.project-item p {
-  margin-bottom: 20px;
-  font-size: 1rem;
-}
-
-.project-button {
-  background-color: #00FF7F;
-  color: #111;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.project-button:hover {
-  background-color: #00c066;
-    transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-.project-button:active {
-  transform: scale(0.95);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+.project-link:hover {
+  color: #00c066; /* Change color on hover */
 }
 
 /* Contact Section */
 .contact {
-  padding: 80px 20px;
-  background-color: #1a1a1a;
-  position: relative;
-      transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  padding: 80px 20px; /* Padding for contact section */
+  background-color: #1a1a1a; /* Background color */
+  position: relative; /* Positioning context */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transition effects */
 }
+
 .contact:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03); /* Slight scale on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .contact .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center container */
+  text-align: center; /* Center text */
+  padding: 20px; /* Padding for container */
 }
 
 .contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem; /* Heading font size */
+  margin-bottom: 20px; /* Space below heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect for text */
 }
 
 .contact-info {
-  font-size: 1.1rem;
-  margin-top: 20px;
+  font-size: 1.1rem; /* Font size for contact info */
+  margin-top: 20px; /* Space above contact info */
 }
 
 .contact-info a {
-  color: #00FF7F;
-  text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
-  display: inline-flex;
-  align-items: center;
-  /* Aligns icon with the text /
-  gap: 5px; /* Add a small space between icon and text */
-}
-
-.contact-info a:hover {
-  color: #00c066;
-    transform: translateY(-2px);
-}
-  .contact-info a i {
-        font-size: 1.2em;
-    }
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #1a1a1a;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul {
-    margin-top: 10px;
-    flex-direction: column;
-  }
-
-  nav ul li {
-    margin: 5px 0;
-  }
-
-  .about .container {
-    flex-direction: column;
-  }
-
-  .about-image {
-    padding-bottom: 20px;
-  }
-    .about-text{
-         padding-left: 0px;
-    text-align: center;
-    }
-    .hero-content-container {
-       flex-direction: column;
-    }
-    .hero-image-container {
-        margin-right: 0; /* Remove margin on mobile view */
-       transform: translateX(0); /* Remove margin on mobile view*/
-       margin-bottom: 15px; /* Add margin bottom on mobile view */
-        opacity: 1;
-        align-self: center; /* Center image on mobile view */
-    }
-    .hero-content{
-        text-align: center;
-    padding-right: 0; /* Remove right padding on mobile view */
-        margin-top: 0px;
-    }
-
+  color: #00FF7F; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s, transform 0
 }
